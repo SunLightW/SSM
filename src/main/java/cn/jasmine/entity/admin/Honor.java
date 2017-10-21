@@ -1,40 +1,43 @@
 package cn.jasmine.entity.admin;
 
 public class Honor {
-  private Long id;
-  private String honor_pic;
-  private String honor_title;
-  private String honor_body;
+    private Integer id;
 
-  public Long getId() {
-    return id;
-  }
+    private String honorPic;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private String honorTitle;
 
-  public String getHonor_pic() {
-    return honor_pic;
-  }
+    private String honorBody;
 
-  public void setHonor_pic(String honor_pic) {
-    this.honor_pic = honor_pic;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public String getHonor_title() {
-    return honor_title;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public void setHonor_title(String honor_title) {
-    this.honor_title = honor_title;
-  }
+    public String getHonorPic() {
+        return honorPic;
+    }
 
-  public String getHonor_body() {
-    return honor_body;
-  }
+    public void setHonorPic(String honorPic) {
+        this.honorPic = honorPic == null ? null : honorPic.trim();
+    }
 
-  public void setHonor_body(String honor_body) {
-    this.honor_body = honor_body;
-  }
+    public String getHonorTitle() {
+        return honorTitle;
+    }
+
+    public void setHonorTitle(String honorTitle) {
+        this.honorTitle = honorTitle == null ? null : honorTitle.trim();
+    }
+
+    public String getHonorBody() {
+        return honorBody;
+    }
+
+    public void setHonorBody(String honorBody) {
+        this.honorBody = honorBody == null ? null : honorBody.trim();
+    }
 }

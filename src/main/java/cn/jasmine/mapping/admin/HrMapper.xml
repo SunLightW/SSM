@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.jasmine.collection.IndexMapper">
-  <resultMap id="BaseResultMap" type="cn.jasmine.collection.Index">
+<mapper namespace="cn.jasmine.dao.HrMapper">
+  <resultMap id="BaseResultMap" type="cn.jasmine.pojo.Hr">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="pic_location" jdbcType="VARCHAR" property="picLocation" />
-    <result column="pic_name" jdbcType="VARCHAR" property="picName" />
-    <result column="v_location" jdbcType="VARCHAR" property="vLocation" />
-    <result column="v_name" jdbcType="VARCHAR" property="vName" />
+    <result column="hr_title" jdbcType="VARCHAR" property="hrTitle" />
+    <result column="hr_num" jdbcType="INTEGER" property="hrNum" />
+    <result column="hr_body" jdbcType="VARCHAR" property="hrBody" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, pic_location, pic_name, v_location, v_name
+    id, hr_title, hr_num, hr_body
   </sql>
-  <select id="selectByExample" parameterType="cn.jasmine.collection.IndexExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.jasmine.pojo.HrExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from index
+    from hr
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +85,76 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from index
+    from hr
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from index
+    delete from hr
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.jasmine.collection.IndexExample">
-    delete from index
+  <delete id="deleteByExample" parameterType="cn.jasmine.pojo.HrExample">
+    delete from hr
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.jasmine.collection.Index">
-    insert into index (id, pic_location, pic_name, 
-      v_location, v_name)
-    values (#{id,jdbcType=INTEGER}, #{picLocation,jdbcType=VARCHAR}, #{picName,jdbcType=VARCHAR}, 
-      #{vLocation,jdbcType=VARCHAR}, #{vName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="cn.jasmine.pojo.Hr">
+    insert into hr (id, hr_title, hr_num, 
+      hr_body)
+    values (#{id,jdbcType=INTEGER}, #{hrTitle,jdbcType=VARCHAR}, #{hrNum,jdbcType=INTEGER}, 
+      #{hrBody,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.jasmine.collection.Index">
-    insert into index
+  <insert id="insertSelective" parameterType="cn.jasmine.pojo.Hr">
+    insert into hr
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="picLocation != null">
-        pic_location,
+      <if test="hrTitle != null">
+        hr_title,
       </if>
-      <if test="picName != null">
-        pic_name,
+      <if test="hrNum != null">
+        hr_num,
       </if>
-      <if test="vLocation != null">
-        v_location,
-      </if>
-      <if test="vName != null">
-        v_name,
+      <if test="hrBody != null">
+        hr_body,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="picLocation != null">
-        #{picLocation,jdbcType=VARCHAR},
+      <if test="hrTitle != null">
+        #{hrTitle,jdbcType=VARCHAR},
       </if>
-      <if test="picName != null">
-        #{picName,jdbcType=VARCHAR},
+      <if test="hrNum != null">
+        #{hrNum,jdbcType=INTEGER},
       </if>
-      <if test="vLocation != null">
-        #{vLocation,jdbcType=VARCHAR},
-      </if>
-      <if test="vName != null">
-        #{vName,jdbcType=VARCHAR},
+      <if test="hrBody != null">
+        #{hrBody,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.jasmine.collection.IndexExample" resultType="java.lang.Long">
-    select count(*) from index
+  <select id="countByExample" parameterType="cn.jasmine.pojo.HrExample" resultType="java.lang.Long">
+    select count(*) from hr
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update index
+    update hr
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.picLocation != null">
-        pic_location = #{record.picLocation,jdbcType=VARCHAR},
+      <if test="record.hrTitle != null">
+        hr_title = #{record.hrTitle,jdbcType=VARCHAR},
       </if>
-      <if test="record.picName != null">
-        pic_name = #{record.picName,jdbcType=VARCHAR},
+      <if test="record.hrNum != null">
+        hr_num = #{record.hrNum,jdbcType=INTEGER},
       </if>
-      <if test="record.vLocation != null">
-        v_location = #{record.vLocation,jdbcType=VARCHAR},
-      </if>
-      <if test="record.vName != null">
-        v_name = #{record.vName,jdbcType=VARCHAR},
+      <if test="record.hrBody != null">
+        hr_body = #{record.hrBody,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -172,40 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update index
+    update hr
     set id = #{record.id,jdbcType=INTEGER},
-      pic_location = #{record.picLocation,jdbcType=VARCHAR},
-      pic_name = #{record.picName,jdbcType=VARCHAR},
-      v_location = #{record.vLocation,jdbcType=VARCHAR},
-      v_name = #{record.vName,jdbcType=VARCHAR}
+      hr_title = #{record.hrTitle,jdbcType=VARCHAR},
+      hr_num = #{record.hrNum,jdbcType=INTEGER},
+      hr_body = #{record.hrBody,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.jasmine.collection.Index">
-    update index
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jasmine.pojo.Hr">
+    update hr
     <set>
-      <if test="picLocation != null">
-        pic_location = #{picLocation,jdbcType=VARCHAR},
+      <if test="hrTitle != null">
+        hr_title = #{hrTitle,jdbcType=VARCHAR},
       </if>
-      <if test="picName != null">
-        pic_name = #{picName,jdbcType=VARCHAR},
+      <if test="hrNum != null">
+        hr_num = #{hrNum,jdbcType=INTEGER},
       </if>
-      <if test="vLocation != null">
-        v_location = #{vLocation,jdbcType=VARCHAR},
-      </if>
-      <if test="vName != null">
-        v_name = #{vName,jdbcType=VARCHAR},
+      <if test="hrBody != null">
+        hr_body = #{hrBody,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.jasmine.collection.Index">
-    update index
-    set pic_location = #{picLocation,jdbcType=VARCHAR},
-      pic_name = #{picName,jdbcType=VARCHAR},
-      v_location = #{vLocation,jdbcType=VARCHAR},
-      v_name = #{vName,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="cn.jasmine.pojo.Hr">
+    update hr
+    set hr_title = #{hrTitle,jdbcType=VARCHAR},
+      hr_num = #{hrNum,jdbcType=INTEGER},
+      hr_body = #{hrBody,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,49 +1,53 @@
 package cn.jasmine.entity.admin;
 
 public class News {
-  private Long id;
-  private String news_title;
-  private String news_date;
-  private String news_body;
-  private String news_pic;
+    private Integer id;
 
-  public Long getId() {
-    return id;
-  }
+    private String newsTitle;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private String newsDate;
 
-  public String getNews_title() {
-    return news_title;
-  }
+    private String newsBody;
 
-  public void setNews_title(String news_title) {
-    this.news_title = news_title;
-  }
+    private String newsPic;
 
-  public String getNews_date() {
-    return news_date;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public void setNews_date(String news_date) {
-    this.news_date = news_date;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public String getNews_body() {
-    return news_body;
-  }
+    public String getNewsTitle() {
+        return newsTitle;
+    }
 
-  public void setNews_body(String news_body) {
-    this.news_body = news_body;
-  }
+    public void setNewsTitle(String newsTitle) {
+        this.newsTitle = newsTitle == null ? null : newsTitle.trim();
+    }
 
-  public String getNews_pic() {
-    return news_pic;
-  }
+    public String getNewsDate() {
+        return newsDate;
+    }
 
-  public void setNews_pic(String news_pic) {
-    this.news_pic = news_pic;
-  }
+    public void setNewsDate(String newsDate) {
+        this.newsDate = newsDate == null ? null : newsDate.trim();
+    }
+
+    public String getNewsBody() {
+        return newsBody;
+    }
+
+    public void setNewsBody(String newsBody) {
+        this.newsBody = newsBody == null ? null : newsBody.trim();
+    }
+
+    public String getNewsPic() {
+        return newsPic;
+    }
+
+    public void setNewsPic(String newsPic) {
+        this.newsPic = newsPic == null ? null : newsPic.trim();
+    }
 }

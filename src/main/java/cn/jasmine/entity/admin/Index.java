@@ -1,49 +1,53 @@
 package cn.jasmine.entity.admin;
 
 public class Index {
-  private Long id;
-  private String pic_location;
-  private String pic_name;
-  private String v_location;
-  private String v_name;
+    private Integer id;
 
-  public Long getId() {
-    return id;
-  }
+    private String picLocation;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private String picName;
 
-  public String getPic_location() {
-    return pic_location;
-  }
+    private String vLocation;
 
-  public void setPic_location(String pic_location) {
-    this.pic_location = pic_location;
-  }
+    private String vName;
 
-  public String getPic_name() {
-    return pic_name;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public void setPic_name(String pic_name) {
-    this.pic_name = pic_name;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public String getV_location() {
-    return v_location;
-  }
+    public String getPicLocation() {
+        return picLocation;
+    }
 
-  public void setV_location(String v_location) {
-    this.v_location = v_location;
-  }
+    public void setPicLocation(String picLocation) {
+        this.picLocation = picLocation == null ? null : picLocation.trim();
+    }
 
-  public String getV_name() {
-    return v_name;
-  }
+    public String getPicName() {
+        return picName;
+    }
 
-  public void setV_name(String v_name) {
-    this.v_name = v_name;
-  }
+    public void setPicName(String picName) {
+        this.picName = picName == null ? null : picName.trim();
+    }
+
+    public String getvLocation() {
+        return vLocation;
+    }
+
+    public void setvLocation(String vLocation) {
+        this.vLocation = vLocation == null ? null : vLocation.trim();
+    }
+
+    public String getvName() {
+        return vName;
+    }
+
+    public void setvName(String vName) {
+        this.vName = vName == null ? null : vName.trim();
+    }
 }

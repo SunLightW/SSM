@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+    <configuration>
+
+        <!--标注实体类别名-->
+        <typeAliases>
+            <typeAlias alias="Honor" type="cn.jasmine.entity.admin.Honor"/>
+        </typeAliases>
+
+        <!--加载映射文件-->
+        <mappers>
+            <mapper resource="cn/jasmine/mapping/admin/HonorMapper.xml" />
+        </mappers>
+    http://blog.csdn.net/c_henjinxing521/article/details/52488202?locationNum=2
+    </configuration>

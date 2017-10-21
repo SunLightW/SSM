@@ -1,40 +1,43 @@
 package cn.jasmine.entity.admin;
 
 public class Hr {
-  private Long id;
-  private String hr_title;
-  private Long hr_num;
-  private String hr_body;
+    private Integer id;
 
-  public Long getId() {
-    return id;
-  }
+    private String hrTitle;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private Integer hrNum;
 
-  public String getHr_title() {
-    return hr_title;
-  }
+    private String hrBody;
 
-  public void setHr_title(String hr_title) {
-    this.hr_title = hr_title;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public Long getHr_num() {
-    return hr_num;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public void setHr_num(Long hr_num) {
-    this.hr_num = hr_num;
-  }
+    public String getHrTitle() {
+        return hrTitle;
+    }
 
-  public String getHr_body() {
-    return hr_body;
-  }
+    public void setHrTitle(String hrTitle) {
+        this.hrTitle = hrTitle == null ? null : hrTitle.trim();
+    }
 
-  public void setHr_body(String hr_body) {
-    this.hr_body = hr_body;
-  }
+    public Integer getHrNum() {
+        return hrNum;
+    }
+
+    public void setHrNum(Integer hrNum) {
+        this.hrNum = hrNum;
+    }
+
+    public String getHrBody() {
+        return hrBody;
+    }
+
+    public void setHrBody(String hrBody) {
+        this.hrBody = hrBody == null ? null : hrBody.trim();
+    }
 }
