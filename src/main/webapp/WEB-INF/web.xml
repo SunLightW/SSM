@@ -8,6 +8,20 @@
 
   <display-name>SSM</display-name>
 
+  <!--配置静态资源-->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.jpg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+  </servlet-mapping>
+
   <!--加载spring配置文件-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -44,7 +58,7 @@
   </listener>
 
 
-  <!-- spring mvc servlet-->
+  <!-- spring mvc 配置-->
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -62,12 +76,12 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>/index.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <!-- session配置 -->
-  <session-config>
-    <session-timeout>15</session-timeout>
-  </session-config>
+  <!--&lt;!&ndash; session配置 &ndash;&gt;-->
+  <!--<session-config>-->
+    <!--<session-timeout>15</session-timeout>-->
+  <!--</session-config>-->
 
 </web-app>

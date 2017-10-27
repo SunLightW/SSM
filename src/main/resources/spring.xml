@@ -8,7 +8,10 @@
                         http://www.springframework.org/schema/context/spring-context-3.1.xsd
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <!--自动扫描-->
+
+
+    <description>spring配置文件,整合了mybatis的配置内容</description>
+    <!--自动扫描加载bean到容器中-->
     <context:component-scan base-package="cn.jasmine"/>
 
     <!--加载1个配置文件-->
@@ -31,7 +34,19 @@
     </bean>
     -->
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+
+
+    <!-- mybatis配置,不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 加载mybatis配置文件 -->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+        <!--加载mapper文件-->
+        <property name="mapperLocations" value="classpath:cn/jasmine/mapping/admin/*.xml"/>
+    </bean>
+
+    <!--阿里巴巴数据库连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${MySQL_class}"/>
         <property name="url" value="${MySQL_url}"/>
@@ -42,13 +57,6 @@
         <property name="maxIdle" value="${maxIdle}"/>
         <property name="minIdle" value="${minIdle}"/>
         <property name="maxWait" value="${maxWait}"/>
-    </bean>
-
-    <!-- mybatis和spring完美整合，不需要mybatis的配置映射文件 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <!-- 加载mybatis配置文件 -->
-        <property name="configLocation" value="classpath:mybatis.xml"/>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
@@ -63,7 +71,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- 使用声明式食物，transactionManager引用上面的书屋管理器-->
+    <!-- 使用声明式事务，transactionManager引用上面的事务管理器-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

@@ -6,16 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * 荣耀service实现类
  */
-@Service
+@Service()
 @Transactional
 public class HonorServiceImpl implements HonorService {
 
-    @Autowired
+    @Resource(name = "honorMapper")
     private HonorMapper honorMapper;
 
     /**
@@ -23,7 +24,7 @@ public class HonorServiceImpl implements HonorService {
      * @return honor
      */
     public List<Honor> findAllHonor() {
-        List<Honor> honorList = honorMapper.finfAllHonor();
+        List<Honor> honorList = honorMapper.findAllHonor();
         return honorList;
     }
 }
