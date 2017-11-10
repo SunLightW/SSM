@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定接口-->
+<mapper namespace="cn.jasmine.dao.HonorAdminDao">
+
+  <resultMap id="honorMap" type="cn.jasmine.entity.HonorAdminEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="honor_pic" jdbcType="VARCHAR" property="honorPic" />
+    <result column="honor_title" jdbcType="VARCHAR" property="honorTitle" />
+    <result column="honor_body" jdbcType="VARCHAR" property="honorBody" />
+  </resultMap>
+
+  <select id="findAllHonor" resultMap="honorMap" resultType="cn.jasmine.entity.HonorAdminEntity">
+    SELECT * FROM honor
+  </select>
+
+</mapper>

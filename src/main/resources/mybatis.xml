@@ -22,19 +22,19 @@
     </settings>
 
 
-    <!--设置别名-->
-    <typeAliases>
-        <!--荣耀-->
-        <typeAlias alias="honor" type="cn.jasmine.entity.admin.Honor"/>
-        <!--首页-->
-        <typeAlias alias="index" type="cn.jasmine.entity.admin.Index"/>
-        <!--用户-->
-        <typeAlias alias="user" type="cn.jasmine.entity.admin.User"/>
-        <!--人才招聘-->
-        <typeAlias alias="hr" type="cn.jasmine.entity.admin.Hr"/>
-        <!--新闻发布-->
-        <typeAlias alias="news" type="cn.jasmine.entity.admin.News"/>
-    </typeAliases>
+    <!--&lt;!&ndash;设置别名&ndash;&gt;-->
+    <!--<typeAliases>-->
+        <!--&lt;!&ndash;荣耀&ndash;&gt;-->
+        <!--<typeAlias alias="honor" type="cn.jasmine.entity.HonorAdminEntity"/>-->
+        <!--&lt;!&ndash;首页&ndash;&gt;-->
+        <!--<typeAlias alias="index" type="cn.jasmine.entity.IndexAdminEntity"/>-->
+        <!--&lt;!&ndash;用户&ndash;&gt;-->
+        <!--<typeAlias alias="user" type="cn.jasmine.entity.UserAdminEntity"/>-->
+        <!--&lt;!&ndash;人才招聘&ndash;&gt;-->
+        <!--<typeAlias alias="hr" type="cn.jasmine.entity.HrAdminEntity"/>-->
+        <!--&lt;!&ndash;新闻发布&ndash;&gt;-->
+        <!--<typeAlias alias="news" type="cn.jasmine.entity.NewsAdminEntity"/>-->
+    <!--</typeAliases>-->
 
 </configuration>
 

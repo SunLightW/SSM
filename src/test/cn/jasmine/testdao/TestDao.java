@@ -1,12 +1,11 @@
 package cn.jasmine.testdao;
 
 
-import cn.jasmine.entity.admin.Honor;
-import cn.jasmine.service.admin.HonorServiceImpl;
+import cn.jasmine.entity.HonorAdminEntity;
+import cn.jasmine.service.impl.HonorServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,7 +23,7 @@ public class TestDao {
 
     @Test
     public void test(){
-        List<Honor> honorList = honorService.findAllHonor();
+        List<HonorAdminEntity> honorList = honorService.findAllHonor();
         System.out.print(honorList);
     }
 }

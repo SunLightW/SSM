@@ -4,28 +4,14 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-
+  <description>采用前后端分离的方法,整个项目文件中没有jsp文件,前台通过ajax请求json数据</description>
 
   <display-name>SSM</display-name>
-
-  <!--配置静态资源-->
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.jpg</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.js</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.css</url-pattern>
-  </servlet-mapping>
 
   <!--加载spring配置文件-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring.xml</param-value>
+    <param-value>classpath:spring*.xml</param-value>
   </context-param>
   <!--加载日志配置文件-->
   <context-param>
@@ -57,7 +43,6 @@
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
 
-
   <!-- spring mvc 配置-->
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
@@ -78,10 +63,5 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-
-  <!--&lt;!&ndash; session配置 &ndash;&gt;-->
-  <!--<session-config>-->
-    <!--<session-timeout>15</session-timeout>-->
-  <!--</session-config>-->
 
 </web-app>

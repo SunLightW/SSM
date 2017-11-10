@@ -3,6 +3,11 @@ package cn.jasmine.utils;
 
 import java.util.List;
 
+/**
+ * 分页查询工具类
+ * @author jasmine
+ * @param <T>
+ */
 public class Page<T> {
     /**
      * 页码
